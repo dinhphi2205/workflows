@@ -4,7 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {ListScreen} from '../screens/ListScreen';
 import {WorkflowScreen} from '../screens/WorkflowScreen';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<AppStackParamList>();
 export const AppStack = () => {
   return (
     <NavigationContainer>
@@ -14,4 +14,9 @@ export const AppStack = () => {
       </Stack.Navigator>
     </NavigationContainer>
   );
+};
+
+export type AppStackParamList = {
+  ListScreen: undefined;
+  WorkflowScreen: {workflow?: string};
 };
