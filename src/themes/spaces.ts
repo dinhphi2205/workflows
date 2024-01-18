@@ -5,4 +5,4 @@ export const spaces = {
   lg: 24,
   xl: 32,
   xxl: 64,
-}
+};
