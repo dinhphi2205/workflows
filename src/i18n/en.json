@@ -1,3 +1,8 @@
 {
-  "noWorkFLow": "No workflows found. Press button + to create one"
+  "noWorkFLow": "No workflows found. Press button + to create one",
+  "changeName": "Update name",
+  "delelete": "Delete node",
+  "deleteWarning": "We also delete children node which is linked with this node. Do you want to continue to delete it?",
+  "cancel": "Cancel",
+  "yes": "Yes, delete it"
 }

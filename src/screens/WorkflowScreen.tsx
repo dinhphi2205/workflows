@@ -1,8 +1,9 @@
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React, {useCallback} from 'react';
+import React, {useCallback, useRef, useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import ActionSheet from 'react-native-actionsheet';
 import {AppStackParamList} from '../navigation';
-import {Rect, Svg} from 'react-native-svg';
+import {Svg} from 'react-native-svg';
 import * as d3 from 'd3';
 import {
   SVGHeight,
@@ -13,10 +14,19 @@ import {
   renderNodes,
 } from '../components/Charts/renderComponents';
 import {WFNode} from '../utils/types';
+import {texts} from '../i18n';
+import {themes} from '../themes';
+import {ActionSheetAction} from '../utils/constants';
+import {Alert, Modal} from 'react-native';
+import {Text} from '../components/core';
 
 type Props = NativeStackNavigationProp<AppStackParamList, 'WorkflowScreen'>;
 
 export const WorkflowScreen = () => {
+  const actionSheet = useRef<ActionSheet>(null);
+  const [currentNode, setCurrentNode] =
+    useState<d3.HierarchyPointNode<WFNode> | null>(null);
+  const [showModal, setShowModal] = useState(false);
   const data: WFNode = {
     name: 'Init',
     type: 'init',
@@ -65,18 +75,56 @@ export const WorkflowScreen = () => {
 
   const onPressNode = useCallback(
     (node: d3.HierarchyPointNode<WFNode>) => () => {
-      console.log('a ', node.data.name);
+      setCurrentNode(_ => {
+        setTimeout(() => {
+          actionSheet.current?.show();
+        }, 0);
+        return node;
+      });
     },
     [],
   );
+
+  const onPressIndex = (index: number) => {
+    if (index === ActionSheetAction.updateName) {
+      setShowModal(true);
+    } else if (index === ActionSheetAction.delete) {
+      Alert.alert('', texts.deleteWarning, [
+        {
+          text: texts.yes,
+          style: 'destructive',
+        },
+        {
+          text: texts.cancel,
+          style: 'cancel',
+        },
+      ]);
+    }
+  };
   return (
     <SafeAreaView>
       <Svg width={SVGWidth} height={SVGHeight}>
+        {/* render link from leaves node to end node */}
         {renderLinks(tempLinks, true)}
         {renderLinks(links)}
         {renderNodes(nodes, onPressNode)}
         {renderNodes([endNode])}
       </Svg>
+      <Modal
+        visible={showModal}
+        animationType="slide"
+        presentationStyle="pageSheet">
+        <Text type="SubTitle">Ahii</Text>
+      </Modal>
+      <ActionSheet
+        ref={actionSheet}
+        title={currentNode?.data.name}
+        tintColor={themes.colors.primary}
+        options={[texts.changeName, texts.delelete, texts.cancel]}
+        cancelButtonIndex={2}
+        destructiveButtonIndex={1}
+        onPress={onPressIndex}
+      />
     </SafeAreaView>
   );
 };

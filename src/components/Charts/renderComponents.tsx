@@ -98,6 +98,7 @@ export const renderNodes = (
               }`}
               fill={'white'}
               stroke={'red'}
+              onPress={onPressItem?.(item)}
             />
             <View
               style={[
