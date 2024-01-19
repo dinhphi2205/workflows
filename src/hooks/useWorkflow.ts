@@ -14,7 +14,7 @@ export const useWorkFlow = (currentWF?: WorkFlow) => {
   };
   const deleteNode = (node: WFNode) => {
     const filters = nodes.filter(
-      wfnode => wfnode.name !== node.name || wfnode.parent?.name !== node.name,
+      wfnode => wfnode.name !== node.name && wfnode.parent?.name !== node.name,
     );
     setNodes(filters);
   };

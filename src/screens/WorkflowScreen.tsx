@@ -33,7 +33,7 @@ export const WorkflowScreen = () => {
   const [showAddModal, setShowAddModal] = useState(false);
 
   const currentWf = useSelector(selectCurrentWF);
-  const {nodes, addNode, updateName} = useWorkFlow(currentWf);
+  const {nodes, addNode, updateName, deleteNode} = useWorkFlow(currentWf);
 
   const treeMap = d3.tree().size([graphWidth, graphHeight]);
   const root = d3
@@ -79,6 +79,9 @@ export const WorkflowScreen = () => {
         {
           text: texts.yes,
           style: 'destructive',
+          onPress: () => {
+            deleteNode(currentNode!);
+          },
         },
         {
           text: texts.cancel,
