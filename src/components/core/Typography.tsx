@@ -28,9 +28,9 @@ const TypoStyle = {
   },
 };
 interface Props extends TextProps {
-  type: keyof typeof TypoStyle;
+  type?: keyof typeof TypoStyle;
 }
 export const Text = ({type, style, ...rest}: Props) => {
-  const customStyle = TypoStyle[type] as TextStyle;
+  const customStyle = (type ? TypoStyle[type] : {}) as TextStyle;
   return <RNText style={[customStyle, style]} {...rest} />;
 };

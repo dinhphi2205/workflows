@@ -19,6 +19,7 @@ import {themes} from '../themes';
 import {ActionSheetAction} from '../utils/constants';
 import {Alert, Modal} from 'react-native';
 import {Text} from '../components/core';
+import { NodeModal } from '../components/modals';
 
 type Props = NativeStackNavigationProp<AppStackParamList, 'WorkflowScreen'>;
 
@@ -110,12 +111,15 @@ export const WorkflowScreen = () => {
         {renderNodes(nodes, onPressNode)}
         {renderNodes([endNode])}
       </Svg>
-      <Modal
+      <NodeModal
+        type="UpdateName"
+        data={currentNode?.data}
+        onSubmit={data => {}}
+        onCancel={() => {}}
         visible={showModal}
         animationType="slide"
-        presentationStyle="pageSheet">
-        <Text type="SubTitle">Ahii</Text>
-      </Modal>
+        presentationStyle="pageSheet"
+      />
       <ActionSheet
         ref={actionSheet}
         title={currentNode?.data.name}

@@ -1,5 +1,6 @@
+type NodeType = 'init' | 'action' | 'condition' | 'end';
 export interface WFNode {
   name: string;
-  type: 'init' | 'action' | 'condition' | 'end';
+  type: NodeType;
   children?: WFNode[];
 }

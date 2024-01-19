@@ -4,5 +4,12 @@
   "delelete": "Delete node",
   "deleteWarning": "We also delete children node which is linked with this node. Do you want to continue to delete it?",
   "cancel": "Cancel",
-  "yes": "Yes, delete it"
+  "yes": "Yes, delete it",
+  "addNode": "Add node",
+  "updateNodeName": "Update node name",
+  "name": "Name: ",
+  "type": "Type:",
+  "chooseParent": "Node Parent: ",
+  "selectNodeType": "Select node type...",
+  "selectParentNode": "Select parent node..."
 }
