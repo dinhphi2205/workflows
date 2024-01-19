@@ -21,17 +21,19 @@ import {Alert, StyleSheet, TouchableOpacity} from 'react-native';
 import {Text} from '../components/core';
 import {NodeModal} from '../components/modals';
 import {useWorkFlow} from '../hooks/useWorkflow';
+import {useSelector} from 'react-redux';
+import {selectCurrentWF} from '../redux/workflowSlices';
 
 type Props = NativeStackNavigationProp<AppStackParamList, 'WorkflowScreen'>;
 
 export const WorkflowScreen = () => {
   const actionSheet = useRef<ActionSheet>(null);
-  const [currentNode, setCurrentNode] =
-    useState<d3.HierarchyPointNode<WFNode> | null>(null);
+  const [currentNode, setCurrentNode] = useState<WFNode>();
   const [showModal, setShowModal] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
 
-  const {nodes, addNode} = useWorkFlow();
+  const currentWf = useSelector(selectCurrentWF);
+  const {nodes, addNode, updateName} = useWorkFlow(currentWf);
 
   const treeMap = d3.tree().size([graphWidth, graphHeight]);
   const root = d3
@@ -46,7 +48,6 @@ export const WorkflowScreen = () => {
     node.y = 100 * node.depth;
   });
   const drawNodes = treeData.descendants() as d3.HierarchyPointNode<WFNode>[];
-  console.log('nodes ', drawNodes);
   const endNode = {
     ...treeData.descendants()[0],
     y: 100 * (maxDepth + 1),
@@ -61,17 +62,14 @@ export const WorkflowScreen = () => {
     target: endNode,
   })) as d3.HierarchyPointLink<WFNode>[];
 
-  const onPressNode = useCallback(
-    (node: d3.HierarchyPointNode<WFNode>) => () => {
-      setCurrentNode(_ => {
-        setTimeout(() => {
-          actionSheet.current?.show();
-        }, 0);
-        return node;
-      });
-    },
-    [],
-  );
+  const onPressNode = (node: d3.HierarchyPointNode<WFNode>) => () => {
+    setCurrentNode(_ => {
+      setTimeout(() => {
+        actionSheet.current?.show();
+      }, 0);
+      return node.data;
+    });
+  };
 
   const onPressIndex = (index: number) => {
     if (index === ActionSheetAction.updateName) {
@@ -104,19 +102,10 @@ export const WorkflowScreen = () => {
         <Text type="Small">Add Node</Text>
       </TouchableOpacity>
       <NodeModal
-        type="UpdateName"
-        data={currentNode?.data}
-        onSubmit={data => {
-          setShowModal(false);
-        }}
-        onCancel={() => setShowModal(false)}
-        visible={showModal}
-        animationType="slide"
-        presentationStyle="pageSheet"
-      />
-      <NodeModal
         type="Add"
+        allNodes={nodes}
         onSubmit={data => {
+          addNode(data);
           setShowAddModal(false);
         }}
         onCancel={() => setShowAddModal(false)}
@@ -124,9 +113,22 @@ export const WorkflowScreen = () => {
         animationType="slide"
         presentationStyle="pageSheet"
       />
+      <NodeModal
+        type="UpdateName"
+        data={currentNode}
+        allNodes={nodes}
+        onSubmit={data => {
+          updateName(currentNode!, data.name);
+          setShowModal(false);
+        }}
+        onCancel={() => setShowModal(false)}
+        visible={showModal}
+        animationType="slide"
+        presentationStyle="pageSheet"
+      />
       <ActionSheet
         ref={actionSheet}
-        title={currentNode?.data.name}
+        title={currentNode?.name}
         tintColor={themes.colors.primary}
         options={[texts.changeName, texts.delelete, texts.cancel]}
         cancelButtonIndex={2}

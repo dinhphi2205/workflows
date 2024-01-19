@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   Button,
   Dimensions,
@@ -9,33 +9,65 @@ import {
   View,
 } from 'react-native';
 import Picker from 'react-native-picker-select';
-import {WFNode} from '../../utils/types';
+import {NodeType, WFNode} from '../../utils/types';
 import {themes} from '../../themes';
 import {Text} from '../core';
 import {texts} from '../../i18n';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {isValidNode} from '../../utils/validations';
 
-interface NodeModal extends ModalProps {
+interface NodeModalProps extends ModalProps {
   type: 'Add' | 'UpdateName';
   data?: WFNode;
-  onSubmit: (newData: WFNode, parent?: WFNode) => void;
+  allNodes: WFNode[];
+  onSubmit: (newData: WFNode) => void;
   onCancel: () => void;
 }
 
 export const NodeModal = ({
   type,
   data,
+  allNodes,
   onSubmit,
   onCancel,
   ...rest
-}: NodeModal) => {
+}: NodeModalProps) => {
   const pickerTypeRef = useRef<Picker>(null);
   const pickerParentRef = useRef<Picker>(null);
   const [nodeType, setNodeType] = useState<string>('undefined');
+  const [parentNode, setParentNode] = useState<string>('undefined');
+  const [nodeName, setNodeName] = useState<string>('');
+
+  useEffect(() => {
+    setNodeName(data?.name ?? '');
+  }, [data?.name]);
 
   const nodeTypeColor =
     nodeType === 'undefined' ? themes.colors.grey3 : 'black';
-  const onPressSubmit = () => {};
+  const parentNodeColor =
+    parentNode === 'undefined' ? themes.colors.grey3 : 'black';
+  const onPressSubmit = () => {
+    const newNode: WFNode = {
+      name: nodeName,
+      type: data ? data.type : (nodeType.toLowerCase() as NodeType),
+      parent: data
+        ? data.parent
+        : allNodes.find(item => item.name === parentNode),
+    };
+    if (isValidNode(newNode, allNodes, data)) {
+      onSubmit(newNode);
+      clearData();
+    }
+  };
+  const onPressCancel = () => {
+    clearData();
+    onCancel();
+  };
+  const clearData = () => {
+    setNodeType('undefined');
+    setParentNode('undefined');
+    setNodeName(data?.name ?? '');
+  };
   return (
     <Modal {...rest}>
       <SafeAreaView style={styles.container}>
@@ -43,12 +75,14 @@ export const NodeModal = ({
           {type === 'Add' ? texts.addNode : texts.updateNodeName}
         </Text>
         <View>
-          <Text type="Caption">{texts.name}</Text>
+          <Text type="Caption">{texts.inputNodeName}</Text>
           <TextInput
+            defaultValue={data?.name}
             placeholder={texts.inputNodeName}
             underlineColorAndroid={'transaprent'}
             placeholderTextColor={themes.colors.grey3}
             style={styles.input}
+            onChangeText={setNodeName}
           />
           {type === 'Add' && (
             <>
@@ -56,9 +90,7 @@ export const NodeModal = ({
               <Picker
                 ref={pickerTypeRef}
                 style={{viewContainer: styles.picker}}
-                onValueChange={value => {
-                  setNodeType(value);
-                }}
+                onValueChange={setNodeType}
                 placeholder={{label: texts.selectNodeType, value: undefined}}
                 items={[
                   {label: 'Action', value: 'Action'},
@@ -73,15 +105,16 @@ export const NodeModal = ({
               <Picker
                 ref={pickerParentRef}
                 style={{viewContainer: styles.picker}}
-                onValueChange={value => console.log(value)}
+                onValueChange={setParentNode}
                 placeholder={{label: texts.selectParentNode}}
-                items={[
-                  {label: 'Football', value: 'football'},
-                  {label: 'Baseball', value: 'baseball'},
-                  {label: 'Hockey', value: 'hockey'},
-                ]}>
-                <Text style={{color: themes.colors.grey3}}>
-                  {texts.selectParentNode}
+                items={allNodes.map(item => ({
+                  label: item.name,
+                  value: item.name,
+                }))}>
+                <Text style={{color: parentNodeColor}}>
+                  {parentNode === 'undefined'
+                    ? texts.selectParentNode
+                    : parentNode}
                 </Text>
               </Picker>
             </>
@@ -95,7 +128,7 @@ export const NodeModal = ({
             <Button
               title="Cancel"
               color={themes.colors.black}
-              onPress={onCancel}
+              onPress={onPressCancel}
             />
           </View>
         </View>

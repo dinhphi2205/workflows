@@ -1,13 +1,16 @@
 import {useState} from 'react';
-import {WFNode} from '../utils/types';
+import {WFNode, WorkFlow} from '../utils/types';
+import {useDispatch} from 'react-redux';
+import {assignCurrentWF} from '../redux/workflowSlices';
 
-export const useWorkFlow = () => {
-  const [nodes, setNodes] = useState<WFNode[]>([
-    {name: 'Eve', type: 'init', parent: null},
-  ]);
+export const useWorkFlow = (currentWF?: WorkFlow) => {
+  const dispatch = useDispatch();
+  const [nodes, setNodes] = useState<WFNode[]>(
+    currentWF ? currentWF.nodes : [{name: 'Init', type: 'init', parent: null}],
+  );
 
-  const addNode = (node: WFNode, parent: WFNode) => {
-    setNodes(wfnodes => [...wfnodes, {...node, parent}]);
+  const addNode = (node: WFNode) => {
+    setNodes(wfnodes => [...wfnodes, node]);
   };
   const deleteNode = (node: WFNode) => {
     const filters = nodes.filter(
@@ -29,6 +32,13 @@ export const useWorkFlow = () => {
 
     setNodes(results);
   };
+  const saveWorkflow = () => {
+    if (currentWF?.name) {
+      dispatch(assignCurrentWF({name: currentWF?.name, nodes}));
+    } else {
+      dispatch(assignCurrentWF({name: '1', nodes}));
+    }
+  };
 
-  return {nodes, addNode, updateName, deleteNode};
+  return {nodes, addNode, updateName, deleteNode, saveWorkflow};
 };
