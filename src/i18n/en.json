@@ -10,6 +10,7 @@
   "name": "Name: ",
   "type": "Type:",
   "chooseParent": "Node Parent: ",
+  "inputNodeName": "Input node name",
   "selectNodeType": "Select node type...",
   "selectParentNode": "Select parent node..."
 }

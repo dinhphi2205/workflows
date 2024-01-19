@@ -17,9 +17,10 @@ import {WFNode} from '../utils/types';
 import {texts} from '../i18n';
 import {themes} from '../themes';
 import {ActionSheetAction} from '../utils/constants';
-import {Alert, Modal} from 'react-native';
+import {Alert, StyleSheet, TouchableOpacity} from 'react-native';
 import {Text} from '../components/core';
-import { NodeModal } from '../components/modals';
+import {NodeModal} from '../components/modals';
+import {useWorkFlow} from '../hooks/useWorkflow';
 
 type Props = NativeStackNavigationProp<AppStackParamList, 'WorkflowScreen'>;
 
@@ -28,30 +29,15 @@ export const WorkflowScreen = () => {
   const [currentNode, setCurrentNode] =
     useState<d3.HierarchyPointNode<WFNode> | null>(null);
   const [showModal, setShowModal] = useState(false);
-  const data: WFNode = {
-    name: 'Init',
-    type: 'init',
-    children: [
-      {name: 'Action 1', type: 'action'},
-      {
-        name: 'Condition 1',
-        type: 'condition',
-        children: [
-          {name: 'Action 2', type: 'action'},
-          {name: 'Action 3', type: 'action'},
-        ],
-      },
-      {name: 'Abel', type: 'action'},
-      {
-        name: 'Awan',
-        type: 'condition',
-        children: [{name: 'Enoch', type: 'action'}],
-      },
-      {name: 'Azura', type: 'action'},
-    ],
-  };
+  const [showAddModal, setShowAddModal] = useState(false);
+
+  const {nodes, addNode} = useWorkFlow();
+
   const treeMap = d3.tree().size([graphWidth, graphHeight]);
-  const root = d3.hierarchy<WFNode>(data);
+  const root = d3
+    .stratify<WFNode>()
+    .id(d => d.name)
+    .parentId(d => d.parent?.name)(nodes);
 
   const treeData = treeMap(root);
   let maxDepth = 0;
@@ -59,7 +45,8 @@ export const WorkflowScreen = () => {
     maxDepth = Math.max(maxDepth, node.depth);
     node.y = 100 * node.depth;
   });
-  const nodes = treeData.descendants() as d3.HierarchyPointNode<WFNode>[];
+  const drawNodes = treeData.descendants() as d3.HierarchyPointNode<WFNode>[];
+  console.log('nodes ', drawNodes);
   const endNode = {
     ...treeData.descendants()[0],
     y: 100 * (maxDepth + 1),
@@ -103,20 +90,37 @@ export const WorkflowScreen = () => {
     }
   };
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.flex}>
       <Svg width={SVGWidth} height={SVGHeight}>
         {/* render link from leaves node to end node */}
         {renderLinks(tempLinks, true)}
         {renderLinks(links)}
-        {renderNodes(nodes, onPressNode)}
+        {renderNodes(drawNodes, onPressNode)}
         {renderNodes([endNode])}
       </Svg>
+      <TouchableOpacity
+        style={styles.floatButton}
+        onPress={() => setShowAddModal(true)}>
+        <Text type="Small">Add Node</Text>
+      </TouchableOpacity>
       <NodeModal
         type="UpdateName"
         data={currentNode?.data}
-        onSubmit={data => {}}
-        onCancel={() => {}}
+        onSubmit={data => {
+          setShowModal(false);
+        }}
+        onCancel={() => setShowModal(false)}
         visible={showModal}
+        animationType="slide"
+        presentationStyle="pageSheet"
+      />
+      <NodeModal
+        type="Add"
+        onSubmit={data => {
+          setShowAddModal(false);
+        }}
+        onCancel={() => setShowAddModal(false)}
+        visible={showAddModal}
         animationType="slide"
         presentationStyle="pageSheet"
       />
@@ -132,3 +136,20 @@ export const WorkflowScreen = () => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  flex: {flex: 1},
+  floatButton: {
+    position: 'absolute',
+    bottom: themes.spaces.xl,
+    right: themes.spaces.lg,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: themes.colors.primary,
+    borderWidth: 1,
+    borderColor: themes.colors.grey3,
+  },
+});

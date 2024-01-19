@@ -31,7 +31,7 @@ export const NodeModal = ({
 }: NodeModal) => {
   const pickerTypeRef = useRef<Picker>(null);
   const pickerParentRef = useRef<Picker>(null);
-  const [nodeType, setNodeType] = useState<string>();
+  const [nodeType, setNodeType] = useState<string>('undefined');
 
   const nodeTypeColor =
     nodeType === 'undefined' ? themes.colors.grey3 : 'black';
@@ -42,46 +42,50 @@ export const NodeModal = ({
         <Text type="SubTitle">
           {type === 'Add' ? texts.addNode : texts.updateNodeName}
         </Text>
-        <View style={{flex: 1}}>
+        <View>
           <Text type="Caption">{texts.name}</Text>
           <TextInput
-            placeholder="Input node name"
+            placeholder={texts.inputNodeName}
             underlineColorAndroid={'transaprent'}
             placeholderTextColor={themes.colors.grey3}
             style={styles.input}
           />
-          <Text type="Caption">{texts.type}</Text>
-          <Picker
-            ref={pickerTypeRef}
-            style={{viewContainer: styles.picker}}
-            onValueChange={value => {
-              setNodeType(value);
-            }}
-            placeholder={{label: texts.selectNodeType, value: undefined}}
-            items={[
-              {label: 'Action', value: 'Action'},
-              {label: 'Condition', value: 'Condition'},
-            ]}>
-            <Text style={{color: nodeTypeColor}}>
-              {nodeType === 'undefined' ? texts.selectNodeType : nodeType}
-            </Text>
-          </Picker>
+          {type === 'Add' && (
+            <>
+              <Text type="Caption">{texts.type}</Text>
+              <Picker
+                ref={pickerTypeRef}
+                style={{viewContainer: styles.picker}}
+                onValueChange={value => {
+                  setNodeType(value);
+                }}
+                placeholder={{label: texts.selectNodeType, value: undefined}}
+                items={[
+                  {label: 'Action', value: 'Action'},
+                  {label: 'Condition', value: 'Condition'},
+                ]}>
+                <Text style={{color: nodeTypeColor}}>
+                  {nodeType === 'undefined' ? texts.selectNodeType : nodeType}
+                </Text>
+              </Picker>
 
-          <Text type="Caption">{texts.chooseParent}</Text>
-          <Picker
-            ref={pickerParentRef}
-            style={{viewContainer: styles.picker}}
-            onValueChange={value => console.log(value)}
-            placeholder={{label: texts.selectParentNode}}
-            items={[
-              {label: 'Football', value: 'football'},
-              {label: 'Baseball', value: 'baseball'},
-              {label: 'Hockey', value: 'hockey'},
-            ]}>
-            <Text style={{color: themes.colors.grey3}}>
-              {texts.selectParentNode}
-            </Text>
-          </Picker>
+              <Text type="Caption">{texts.chooseParent}</Text>
+              <Picker
+                ref={pickerParentRef}
+                style={{viewContainer: styles.picker}}
+                onValueChange={value => console.log(value)}
+                placeholder={{label: texts.selectParentNode}}
+                items={[
+                  {label: 'Football', value: 'football'},
+                  {label: 'Baseball', value: 'baseball'},
+                  {label: 'Hockey', value: 'hockey'},
+                ]}>
+                <Text style={{color: themes.colors.grey3}}>
+                  {texts.selectParentNode}
+                </Text>
+              </Picker>
+            </>
+          )}
           <View style={styles.rowcontainer}>
             <Button
               title="Apply"
