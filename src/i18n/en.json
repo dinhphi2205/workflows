@@ -16,6 +16,7 @@
   "selectNodeType": "Select node type...",
   "selectParentNode": "Select parent node...",
   "oops": "Oops",
+  "emptyNodeName": "Node name should be not empty",
   "validateNodeName": "This node name existed in work flow. Please use another name",
   "validateNodeInfo": "Please choose node type and node parent",
   "newWF": "New Workflow",

@@ -80,7 +80,7 @@ export const NodeModal = ({
           <TextInput
             defaultValue={data?.name}
             placeholder={texts.inputNodeName}
-            underlineColorAndroid={'transaprent'}
+            underlineColorAndroid={'white'}
             placeholderTextColor={themes.colors.grey3}
             style={styles.input}
             onChangeText={setNodeName}
@@ -90,7 +90,10 @@ export const NodeModal = ({
               <Text type="Caption">{texts.type}</Text>
               <Picker
                 ref={pickerTypeRef}
-                style={{viewContainer: styles.picker}}
+                style={{
+                  viewContainer: styles.picker,
+                  inputAndroidContainer: styles.picker,
+                }}
                 onValueChange={setNodeType}
                 placeholder={{label: texts.selectNodeType, value: undefined}}
                 items={[
@@ -105,7 +108,10 @@ export const NodeModal = ({
               <Text type="Caption">{texts.chooseParent}</Text>
               <Picker
                 ref={pickerParentRef}
-                style={{viewContainer: styles.picker}}
+                style={{
+                  viewContainer: styles.picker,
+                  inputAndroidContainer: styles.picker,
+                }}
                 onValueChange={setParentNode}
                 placeholder={{label: texts.selectParentNode}}
                 items={allNodes.map(item => ({

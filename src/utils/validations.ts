@@ -7,6 +7,10 @@ export const isValidNode = (
   allNodes: WFNode[],
   currentNode?: WFNode,
 ) => {
+  if (node.name.trim() === '') {
+    Alert.alert(texts.oops, texts.emptyNodeName);
+    return false;
+  }
   if (
     allNodes.filter(
       item =>
