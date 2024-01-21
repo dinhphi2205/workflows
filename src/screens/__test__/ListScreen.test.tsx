@@ -1,7 +1,7 @@
 import React from 'react';
 import {renderWithProviders} from '../../utils/test-ultils';
 import {ListScreen} from '../ListScreen';
-import {fireEvent, screen} from '@testing-library/react-native';
+import {act, fireEvent, screen} from '@testing-library/react-native';
 import {texts} from '../../i18n';
 import {saveNewWorkflow} from '../../redux/workflowSlices';
 
@@ -22,9 +22,14 @@ describe('ListScreen', () => {
 
   test('should render with normal state', async () => {
     const {store} = renderWithProviders(<ListScreen />);
-    store.dispatch(saveNewWorkflow([{name: 'Condition 1', type: 'condition'}]));
+    act(() => {
+      store.dispatch(
+        saveNewWorkflow([{name: 'Condition 1', type: 'condition'}]),
+      );
+      store.dispatch(saveNewWorkflow([{name: 'Action 1', type: 'action'}]));
+    });
     expect(screen.getByText('WorkFlow 1')).toBeOnTheScreen();
-    store.dispatch(saveNewWorkflow([{name: 'Action 1', type: 'action'}]));
+
     expect(screen.getByText('WorkFlow 2')).toBeOnTheScreen();
   });
 
