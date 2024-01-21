@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
@@ -13,7 +12,7 @@
     "android:dev-release": "react-native run-android --mode=developmentrelease",
     "android:prod": "react-native run-android --mode=productiondebug",
     "android:prod-release": "react-native run-android --mode=productionrelease",
-    "ios": "react-native run-ios --scheme \"WorkflowsDev\" ",
+    "ios:dev": "react-native run-ios --scheme \"WorkflowsDev\" ",
     "ios:staging": "react-native run-ios --scheme \"WorkflowsStaging\"",
     "ios:prod": "react-native run-ios--scheme \"Workflows\""
   },
