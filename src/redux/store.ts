@@ -1,7 +1,7 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import workflowReducer from './workflowSlices';
 import {reduxStorage} from './storage';
-import {persistReducer, persistStore} from 'redux-persist';
+import {persistReducer} from 'redux-persist';
 
 const persistConfig = {
   key: 'root',

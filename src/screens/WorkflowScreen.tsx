@@ -46,6 +46,7 @@ export const WorkflowScreen = ({route, navigation}: Props) => {
     .id(d => d.name)
     .parentId(d => d.parent?.name)(nodes);
 
+  //@ts-expect-error
   const treeData = treeMap(root);
   let maxDepth = 0;
   treeData.each(node => {
