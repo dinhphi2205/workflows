@@ -8,22 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* WorkflowsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* WorkflowsTests.m */; };
-		0C80B921A6F3F58F76C31292 /* libPods-Workflows.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-Workflows.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		7699B88040F8A987B510C191 /* libPods-Workflows-WorkflowsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Workflows-WorkflowsTests.a */; };
+		58CB96331FABD0615586D722 /* libPods-WorkflowCommonPods-WorkflowsDev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48EAEDB1C5CADFA94F53CEF0 /* libPods-WorkflowCommonPods-WorkflowsDev.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		D0884669930100BC180EE3D1 /* libPods-WorkflowCommonPods-WorkflowsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46908C7960326542C82E5BBA /* libPods-WorkflowCommonPods-WorkflowsTests.a */; };
+		D9783AEFF8D0ADFBE239FD4E /* libPods-WorkflowCommonPods-WorkflowsStaging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC9EAFF65B5D04762C3CF90 /* libPods-WorkflowCommonPods-WorkflowsStaging.a */; };
 		D9E9C6FF2B5CE99400787656 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		D9E9C7002B5CE99400787656 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		D9E9C7022B5CE99400787656 /* libPods-Workflows.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-Workflows.a */; };
 		D9E9C7042B5CE99400787656 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		D9E9C7052B5CE99400787656 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		D9E9C7232B5CEA2A00787656 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		D9E9C7242B5CEA2A00787656 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		D9E9C7262B5CEA2A00787656 /* libPods-Workflows.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-Workflows.a */; };
 		D9E9C7282B5CEA2A00787656 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		D9E9C7292B5CEA2A00787656 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		F23637B6C2176AE4B5FF55F8 /* libPods-WorkflowCommonPods-Workflows.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A94B9873EE9615A0E5E4673 /* libPods-WorkflowCommonPods-Workflows.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,24 +40,34 @@
 		00E356EE1AD99517003FC87E /* WorkflowsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkflowsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* WorkflowsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkflowsTests.m; sourceTree = "<group>"; };
+		0701B079F81132E470CC8828 /* Pods-WorkflowCommonPods-WorkflowsDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkflowCommonPods-WorkflowsDev.release.xcconfig"; path = "Target Support Files/Pods-WorkflowCommonPods-WorkflowsDev/Pods-WorkflowCommonPods-WorkflowsDev.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Workflows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workflows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Workflows/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Workflows/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Workflows/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Workflows/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Workflows/main.m; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-Workflows-WorkflowsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Workflows-WorkflowsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A94B9873EE9615A0E5E4673 /* libPods-WorkflowCommonPods-Workflows.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WorkflowCommonPods-Workflows.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		379BF62ABD62AC0AD2199621 /* Pods-WorkflowCommonPods-Workflows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkflowCommonPods-Workflows.release.xcconfig"; path = "Target Support Files/Pods-WorkflowCommonPods-Workflows/Pods-WorkflowCommonPods-Workflows.release.xcconfig"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-Workflows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workflows.debug.xcconfig"; path = "Target Support Files/Pods-Workflows/Pods-Workflows.debug.xcconfig"; sourceTree = "<group>"; };
+		3F5105B0F7A06BD460ED0C01 /* Pods-WorkflowCommonPods-WorkflowsStaging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkflowCommonPods-WorkflowsStaging.release.xcconfig"; path = "Target Support Files/Pods-WorkflowCommonPods-WorkflowsStaging/Pods-WorkflowCommonPods-WorkflowsStaging.release.xcconfig"; sourceTree = "<group>"; };
+		46908C7960326542C82E5BBA /* libPods-WorkflowCommonPods-WorkflowsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WorkflowCommonPods-WorkflowsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		48EAEDB1C5CADFA94F53CEF0 /* libPods-WorkflowCommonPods-WorkflowsDev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WorkflowCommonPods-WorkflowsDev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5709B34CF0A7D63546082F79 /* Pods-Workflows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workflows.release.xcconfig"; path = "Target Support Files/Pods-Workflows/Pods-Workflows.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-Workflows-WorkflowsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workflows-WorkflowsTests.debug.xcconfig"; path = "Target Support Files/Pods-Workflows-WorkflowsTests/Pods-Workflows-WorkflowsTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-Workflows.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Workflows.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Workflows/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8842CB4F1780E73707C4AE07 /* Pods-WorkflowCommonPods-WorkflowsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkflowCommonPods-WorkflowsTests.release.xcconfig"; path = "Target Support Files/Pods-WorkflowCommonPods-WorkflowsTests/Pods-WorkflowCommonPods-WorkflowsTests.release.xcconfig"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Workflows-WorkflowsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workflows-WorkflowsTests.release.xcconfig"; path = "Target Support Files/Pods-Workflows-WorkflowsTests/Pods-Workflows-WorkflowsTests.release.xcconfig"; sourceTree = "<group>"; };
+		8D9B4628A653FE2491211AAC /* Pods-WorkflowCommonPods-WorkflowsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkflowCommonPods-WorkflowsTests.debug.xcconfig"; path = "Target Support Files/Pods-WorkflowCommonPods-WorkflowsTests/Pods-WorkflowCommonPods-WorkflowsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C69083CBC04DC7FE012985D4 /* Pods-WorkflowCommonPods-Workflows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkflowCommonPods-Workflows.debug.xcconfig"; path = "Target Support Files/Pods-WorkflowCommonPods-Workflows/Pods-WorkflowCommonPods-Workflows.debug.xcconfig"; sourceTree = "<group>"; };
+		C947E046E6F83F2A6D725903 /* Pods-WorkflowCommonPods-WorkflowsStaging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkflowCommonPods-WorkflowsStaging.debug.xcconfig"; path = "Target Support Files/Pods-WorkflowCommonPods-WorkflowsStaging/Pods-WorkflowCommonPods-WorkflowsStaging.debug.xcconfig"; sourceTree = "<group>"; };
 		D9E9C70C2B5CE99400787656 /* WorkflowsDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkflowsDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9E9C71F2B5CE9B700787656 /* Workflows dev-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Workflows dev-Info.plist"; path = "/Users/phimai/Projects/poc/workflows/ios/Workflows dev-Info.plist"; sourceTree = "<absolute>"; };
+		D9E9C71F2B5CE9B700787656 /* Workflows dev-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Workflows dev-Info.plist"; path = "Workflows dev-Info.plist"; sourceTree = "<absolute>"; };
 		D9E9C7302B5CEA2A00787656 /* WorkflowsStaging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkflowsStaging.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9E9C7312B5CEA2A00787656 /* Workflows stg-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Workflows stg-Info.plist"; path = "/Users/phimai/Projects/poc/workflows/ios/Workflows stg-Info.plist"; sourceTree = "<absolute>"; };
+		D9E9C7312B5CEA2A00787656 /* Workflows stg-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Workflows stg-Info.plist"; path = "Workflows stg-Info.plist"; sourceTree = "<absolute>"; };
+		DE8E28544B37FB1A3423B413 /* Pods-WorkflowCommonPods-WorkflowsDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkflowCommonPods-WorkflowsDev.debug.xcconfig"; path = "Target Support Files/Pods-WorkflowCommonPods-WorkflowsDev/Pods-WorkflowCommonPods-WorkflowsDev.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		FFC9EAFF65B5D04762C3CF90 /* libPods-WorkflowCommonPods-WorkflowsStaging.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WorkflowCommonPods-WorkflowsStaging.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-Workflows-WorkflowsTests.a in Frameworks */,
+				D0884669930100BC180EE3D1 /* libPods-WorkflowCommonPods-WorkflowsTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-Workflows.a in Frameworks */,
+				F23637B6C2176AE4B5FF55F8 /* libPods-WorkflowCommonPods-Workflows.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9E9C7022B5CE99400787656 /* libPods-Workflows.a in Frameworks */,
+				58CB96331FABD0615586D722 /* libPods-WorkflowCommonPods-WorkflowsDev.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9E9C7262B5CEA2A00787656 /* libPods-Workflows.a in Frameworks */,
+				D9783AEFF8D0ADFBE239FD4E /* libPods-WorkflowCommonPods-WorkflowsStaging.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,8 +140,10 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-Workflows.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-Workflows-WorkflowsTests.a */,
+				2A94B9873EE9615A0E5E4673 /* libPods-WorkflowCommonPods-Workflows.a */,
+				48EAEDB1C5CADFA94F53CEF0 /* libPods-WorkflowCommonPods-WorkflowsDev.a */,
+				FFC9EAFF65B5D04762C3CF90 /* libPods-WorkflowCommonPods-WorkflowsStaging.a */,
+				46908C7960326542C82E5BBA /* libPods-WorkflowCommonPods-WorkflowsTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -178,6 +190,14 @@
 				5709B34CF0A7D63546082F79 /* Pods-Workflows.release.xcconfig */,
 				5B7EB9410499542E8C5724F5 /* Pods-Workflows-WorkflowsTests.debug.xcconfig */,
 				89C6BE57DB24E9ADA2F236DE /* Pods-Workflows-WorkflowsTests.release.xcconfig */,
+				C69083CBC04DC7FE012985D4 /* Pods-WorkflowCommonPods-Workflows.debug.xcconfig */,
+				379BF62ABD62AC0AD2199621 /* Pods-WorkflowCommonPods-Workflows.release.xcconfig */,
+				DE8E28544B37FB1A3423B413 /* Pods-WorkflowCommonPods-WorkflowsDev.debug.xcconfig */,
+				0701B079F81132E470CC8828 /* Pods-WorkflowCommonPods-WorkflowsDev.release.xcconfig */,
+				C947E046E6F83F2A6D725903 /* Pods-WorkflowCommonPods-WorkflowsStaging.debug.xcconfig */,
+				3F5105B0F7A06BD460ED0C01 /* Pods-WorkflowCommonPods-WorkflowsStaging.release.xcconfig */,
+				8D9B4628A653FE2491211AAC /* Pods-WorkflowCommonPods-WorkflowsTests.debug.xcconfig */,
+				8842CB4F1780E73707C4AE07 /* Pods-WorkflowCommonPods-WorkflowsTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -367,15 +387,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Workflows/Pods-Workflows-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-Workflows/Pods-WorkflowCommonPods-Workflows-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Workflows/Pods-Workflows-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-Workflows/Pods-WorkflowCommonPods-Workflows-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Workflows/Pods-Workflows-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-Workflows/Pods-WorkflowCommonPods-Workflows-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
@@ -393,7 +413,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Workflows-WorkflowsTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-WorkflowCommonPods-WorkflowsTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -415,7 +435,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Workflows-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-WorkflowCommonPods-Workflows-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -428,15 +448,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Workflows-WorkflowsTests/Pods-Workflows-WorkflowsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-WorkflowsTests/Pods-WorkflowCommonPods-WorkflowsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Workflows-WorkflowsTests/Pods-Workflows-WorkflowsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-WorkflowsTests/Pods-WorkflowCommonPods-WorkflowsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Workflows-WorkflowsTests/Pods-Workflows-WorkflowsTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-WorkflowsTests/Pods-WorkflowCommonPods-WorkflowsTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D9E9C6FD2B5CE99400787656 /* [CP] Check Pods Manifest.lock */ = {
@@ -454,7 +474,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Workflows-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-WorkflowCommonPods-WorkflowsDev-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -483,15 +503,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Workflows/Pods-Workflows-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-WorkflowsDev/Pods-WorkflowCommonPods-WorkflowsDev-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Workflows/Pods-Workflows-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-WorkflowsDev/Pods-WorkflowCommonPods-WorkflowsDev-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Workflows/Pods-Workflows-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-WorkflowsDev/Pods-WorkflowCommonPods-WorkflowsDev-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D9E9C7082B5CE99400787656 /* [CP] Copy Pods Resources */ = {
@@ -500,15 +520,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Workflows/Pods-Workflows-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-WorkflowsDev/Pods-WorkflowCommonPods-WorkflowsDev-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Workflows/Pods-Workflows-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-WorkflowsDev/Pods-WorkflowCommonPods-WorkflowsDev-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Workflows/Pods-Workflows-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-WorkflowsDev/Pods-WorkflowCommonPods-WorkflowsDev-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D9E9C7212B5CEA2A00787656 /* [CP] Check Pods Manifest.lock */ = {
@@ -526,7 +546,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Workflows-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-WorkflowCommonPods-WorkflowsStaging-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -555,15 +575,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Workflows/Pods-Workflows-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-WorkflowsStaging/Pods-WorkflowCommonPods-WorkflowsStaging-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Workflows/Pods-Workflows-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-WorkflowsStaging/Pods-WorkflowCommonPods-WorkflowsStaging-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Workflows/Pods-Workflows-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-WorkflowsStaging/Pods-WorkflowCommonPods-WorkflowsStaging-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D9E9C72C2B5CEA2A00787656 /* [CP] Copy Pods Resources */ = {
@@ -572,15 +592,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Workflows/Pods-Workflows-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-WorkflowsStaging/Pods-WorkflowCommonPods-WorkflowsStaging-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Workflows/Pods-Workflows-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-WorkflowsStaging/Pods-WorkflowCommonPods-WorkflowsStaging-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Workflows/Pods-Workflows-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-WorkflowsStaging/Pods-WorkflowCommonPods-WorkflowsStaging-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
@@ -589,15 +609,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Workflows/Pods-Workflows-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-Workflows/Pods-WorkflowCommonPods-Workflows-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Workflows/Pods-Workflows-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-Workflows/Pods-WorkflowCommonPods-Workflows-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Workflows/Pods-Workflows-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-Workflows/Pods-WorkflowCommonPods-Workflows-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
@@ -606,15 +626,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Workflows-WorkflowsTests/Pods-Workflows-WorkflowsTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-WorkflowsTests/Pods-WorkflowCommonPods-WorkflowsTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Workflows-WorkflowsTests/Pods-Workflows-WorkflowsTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-WorkflowsTests/Pods-WorkflowCommonPods-WorkflowsTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Workflows-WorkflowsTests/Pods-Workflows-WorkflowsTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorkflowCommonPods-WorkflowsTests/Pods-WorkflowCommonPods-WorkflowsTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -668,7 +688,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-Workflows-WorkflowsTests.debug.xcconfig */;
+			baseConfigurationReference = 8D9B4628A653FE2491211AAC /* Pods-WorkflowCommonPods-WorkflowsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -695,7 +715,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-Workflows-WorkflowsTests.release.xcconfig */;
+			baseConfigurationReference = 8842CB4F1780E73707C4AE07 /* Pods-WorkflowCommonPods-WorkflowsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -719,7 +739,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-Workflows.debug.xcconfig */;
+			baseConfigurationReference = C69083CBC04DC7FE012985D4 /* Pods-WorkflowCommonPods-Workflows.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -746,7 +766,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-Workflows.release.xcconfig */;
+			baseConfigurationReference = 379BF62ABD62AC0AD2199621 /* Pods-WorkflowCommonPods-Workflows.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -838,7 +858,10 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -906,7 +929,10 @@
 					"-DFOLLY_USE_LIBCPP=1",
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -916,7 +942,7 @@
 		};
 		D9E9C70A2B5CE99400787656 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-Workflows.debug.xcconfig */;
+			baseConfigurationReference = DE8E28544B37FB1A3423B413 /* Pods-WorkflowCommonPods-WorkflowsDev.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -943,7 +969,7 @@
 		};
 		D9E9C70B2B5CE99400787656 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-Workflows.release.xcconfig */;
+			baseConfigurationReference = 0701B079F81132E470CC8828 /* Pods-WorkflowCommonPods-WorkflowsDev.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -968,7 +994,7 @@
 		};
 		D9E9C72E2B5CEA2A00787656 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-Workflows.debug.xcconfig */;
+			baseConfigurationReference = C947E046E6F83F2A6D725903 /* Pods-WorkflowCommonPods-WorkflowsStaging.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -995,7 +1021,7 @@
 		};
 		D9E9C72F2B5CEA2A00787656 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-Workflows.release.xcconfig */;
+			baseConfigurationReference = 3F5105B0F7A06BD460ED0C01 /* Pods-WorkflowCommonPods-WorkflowsStaging.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
