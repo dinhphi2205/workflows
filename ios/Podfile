@@ -38,13 +38,13 @@ abstract_target 'zenixCommonPods' do
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
-  target 'zenixDev' do
+  target 'WorkflowsDev' do
   end
 
-  target 'zenixStg' do
+  target 'WorkflowsStaging' do
   end
 
-  target 'zenix' do
+  target 'Workflows' do
   end
   
   target 'WorkflowsTests' do
