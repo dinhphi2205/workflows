@@ -1,30 +1,46 @@
 import {createSlice} from '@reduxjs/toolkit';
 import type {PayloadAction} from '@reduxjs/toolkit';
-import {WorkFlow} from '../utils/types';
+import {WFNode, WorkFlow} from '../utils/types';
 import {RootState} from './store';
 
 export interface WorkflowsState {
   listWF: WorkFlow[];
-  currentWF?: WorkFlow;
 }
 
 const initialState: WorkflowsState = {
   listWF: [],
-  currentWF: undefined,
 };
 
 export const workflowSlice = createSlice({
   name: 'workflow',
   initialState,
   reducers: {
-    assignCurrentWF: (state, action: PayloadAction<WorkFlow>) => {
-      state.currentWF = action.payload;
+    saveNewWorkflow: (state, action: PayloadAction<WFNode[]>) => {
+      let name = 'WorkFlow 1';
+      if (state.listWF.length > 0) {
+        const lastWF = state.listWF[state.listWF.length - 1];
+        name = `WorkFlow ${parseInt(lastWF.name.split(' ')[1], 10) + 1}`;
+      }
+      state.listWF = [...state.listWF, {name, nodes: action.payload}];
+    },
+    saveCurrentWorkFlow: (state, action: PayloadAction<WorkFlow>) => {
+      const wfIndex = state.listWF.findIndex(
+        wf => wf.name === action.payload.name,
+      );
+      if (wfIndex > -1) {
+        state.listWF = state.listWF.map((item, index) =>
+          index === wfIndex ? action.payload : item,
+        );
+      }
+    },
+    deleteWorkFlow: (state, action: PayloadAction<WorkFlow>) => {
+      state.listWF = state.listWF.filter(wf => wf.name !== action.payload.name);
     },
   },
 });
-export const {assignCurrentWF} = workflowSlice.actions;
+export const {saveNewWorkflow, saveCurrentWorkFlow, deleteWorkFlow} =
+  workflowSlice.actions;
 
-export const selectCurrentWF = (state: RootState) => state.workflow.currentWF;
 export const selectListWF = (state: RootState) => state.workflow.listWF;
 
 export default workflowSlice.reducer;

@@ -1,32 +1,37 @@
-import React, {useCallback, useState} from 'react';
-import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import React, {useCallback} from 'react';
+import {FlatList, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {texts} from '../i18n';
 import {themes} from '../themes';
 import {useNavigation} from '@react-navigation/native';
 import {AppStackParamList} from '../navigation';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useSelector} from 'react-redux';
+import {selectListWF} from '../redux/workflowSlices';
+import {WorkFlow} from '../utils/types';
+import {Text} from '../components/core';
 
 type Props = NativeStackNavigationProp<AppStackParamList, 'ListScreen'>;
 
 export const ListScreen = () => {
-  const [listWorkflow, setListWorkFlow] = useState<string[]>([]);
+  const listWF = useSelector(selectListWF);
   const {navigate} = useNavigation<Props>();
 
-  const renderItem = useCallback(({item}: {item: string}) => {
+  const renderItem = useCallback(({item}: {item: WorkFlow}) => {
     return (
-      <View>
-        <Text> {item}</Text>
-        <Text> Last update</Text>
-      </View>
+      <TouchableOpacity
+        style={styles.row}
+        onPress={() => navigate('WorkflowScreen', {workflow: item})}>
+        <Text type="Body"> {item.name}</Text>
+      </TouchableOpacity>
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <FlatList
-        data={listWorkflow}
-        keyExtractor={(item, index) => `${item}_${index}`}
+        data={listWF}
+        keyExtractor={(item, index) => `${item.name}_${index}`}
         renderItem={renderItem}
         ListEmptyComponent={
           <View style={styles.centerHorizontal}>
@@ -39,13 +44,13 @@ export const ListScreen = () => {
         onPress={() => navigate('WorkflowScreen', {})}>
         <Text style={styles.textPlus}>+</Text>
       </TouchableOpacity>
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {flex: 1, padding: themes.spaces.lg},
-  centerHorizontal: {alignItems: 'center'},
+  container: {flex: 1},
+  centerHorizontal: {alignItems: 'center', padding: themes.spaces.md},
   textCenter: {textAlign: 'center'},
   textPlus: {fontSize: 24, color: themes.colors.white},
   floatButton: {
@@ -60,5 +65,10 @@ const styles = StyleSheet.create({
     backgroundColor: themes.colors.primary,
     borderWidth: 1,
     borderColor: themes.colors.grey3,
+  },
+  row: {
+    padding: themes.spaces.md,
+    borderBottomWidth: 1,
+    borderBottomColor: themes.colors.grey3,
   },
 });

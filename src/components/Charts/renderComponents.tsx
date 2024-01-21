@@ -19,7 +19,7 @@ const ConditionItemWidth = ActionItemWidth;
 const ConditionItemHeight = ActionItemHeight;
 
 export const GRAPH_MARGIN = 16;
-export const SVGHeight = Dimensions.get('window').width;
+export const SVGHeight = Dimensions.get('window').height - 100;
 export const SVGWidth = Dimensions.get('window').width;
 export const graphHeight = SVGHeight - 2 * GRAPH_MARGIN;
 export const graphWidth = SVGWidth - 2 * GRAPH_MARGIN;

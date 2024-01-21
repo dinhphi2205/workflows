@@ -3,6 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {ListScreen} from '../screens/ListScreen';
 import {WorkflowScreen} from '../screens/WorkflowScreen';
+import {WorkFlow} from '../utils/types';
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 export const AppStack = () => {
@@ -18,5 +19,5 @@ export const AppStack = () => {
 
 export type AppStackParamList = {
   ListScreen: undefined;
-  WorkflowScreen: {workflow?: string};
+  WorkflowScreen: {workflow?: WorkFlow};
 };

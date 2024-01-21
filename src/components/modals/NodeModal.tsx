@@ -47,12 +47,13 @@ export const NodeModal = ({
   const parentNodeColor =
     parentNode === 'undefined' ? themes.colors.grey3 : 'black';
   const onPressSubmit = () => {
+    const parent = data
+      ? data.parent
+      : allNodes.find(item => item.name === parentNode);
     const newNode: WFNode = {
       name: nodeName,
       type: data ? data.type : (nodeType.toLowerCase() as NodeType),
-      parent: data
-        ? data.parent
-        : allNodes.find(item => item.name === parentNode),
+      parent: {name: parent!.name, type: parent!.type},
     };
     if (isValidNode(newNode, allNodes, data)) {
       onSubmit(newNode);

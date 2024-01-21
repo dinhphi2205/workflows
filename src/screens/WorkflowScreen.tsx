@@ -1,5 +1,6 @@
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React, {useCallback, useRef, useState} from 'react';
+/* eslint-disable react/no-unstable-nested-components */
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import React, {useRef, useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import ActionSheet from 'react-native-actionsheet';
 import {AppStackParamList} from '../navigation';
@@ -17,25 +18,30 @@ import {WFNode} from '../utils/types';
 import {texts} from '../i18n';
 import {themes} from '../themes';
 import {ActionSheetAction} from '../utils/constants';
-import {Alert, StyleSheet, TouchableOpacity} from 'react-native';
+import {Alert, Button, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Text} from '../components/core';
 import {NodeModal} from '../components/modals';
 import {useWorkFlow} from '../hooks/useWorkflow';
-import {useSelector} from 'react-redux';
-import {selectCurrentWF} from '../redux/workflowSlices';
 
-type Props = NativeStackNavigationProp<AppStackParamList, 'WorkflowScreen'>;
+type Props = NativeStackScreenProps<AppStackParamList, 'WorkflowScreen'>;
 
-export const WorkflowScreen = () => {
+export const WorkflowScreen = ({route, navigation}: Props) => {
   const actionSheet = useRef<ActionSheet>(null);
   const [currentNode, setCurrentNode] = useState<WFNode>();
   const [showModal, setShowModal] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
+  const currentWf = route.params.workflow;
+  const {nodes, addNode, updateName, deleteNode, saveWorkflow, deleteWorkflow} =
+    useWorkFlow(currentWf);
 
-  const currentWf = useSelector(selectCurrentWF);
-  const {nodes, addNode, updateName, deleteNode} = useWorkFlow(currentWf);
+  navigation.setOptions({
+    title: currentWf ? currentWf.name : texts.newWF,
+    headerBackTitleVisible: false,
+    headerRight: () => <Button title={texts.save} onPress={saveWorkflow} />,
+  });
 
   const treeMap = d3.tree().size([graphWidth, graphHeight]);
+  console.log('node ', nodes);
   const root = d3
     .stratify<WFNode>()
     .id(d => d.name)
@@ -91,7 +97,7 @@ export const WorkflowScreen = () => {
     }
   };
   return (
-    <SafeAreaView style={styles.flex}>
+    <View style={styles.flex, { paddingTop: 16}}>
       <Svg width={SVGWidth} height={SVGHeight}>
         {/* render link from leaves node to end node */}
         {renderLinks(tempLinks, true)}
@@ -102,8 +108,19 @@ export const WorkflowScreen = () => {
       <TouchableOpacity
         style={styles.floatButton}
         onPress={() => setShowAddModal(true)}>
-        <Text type="Small">Add Node</Text>
+        <Text type="Caption" style={styles.textCenter}>
+          {texts.addNode}
+        </Text>
       </TouchableOpacity>
+      {currentWf && (
+        <TouchableOpacity
+          style={styles.floatButtonDelete}
+          onPress={deleteWorkflow}>
+          <Text type="Small" style={[styles.textCenter, styles.textWhite]}>
+            {texts.deleteWF}
+          </Text>
+        </TouchableOpacity>
+      )}
       <NodeModal
         type="Add"
         allNodes={nodes}
@@ -138,7 +155,7 @@ export const WorkflowScreen = () => {
         destructiveButtonIndex={1}
         onPress={onPressIndex}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -148,13 +165,36 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: themes.spaces.xl,
     right: themes.spaces.lg,
-    width: 50,
-    height: 50,
-    borderRadius: 25,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: themes.colors.primary,
     borderWidth: 1,
     borderColor: themes.colors.grey3,
+  },
+  floatButtonDelete: {
+    position: 'absolute',
+    bottom: themes.spaces.xl,
+    left: themes.spaces.lg,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'red',
+    borderWidth: 1,
+    borderColor: themes.colors.grey3,
+  },
+  rowButton: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  textCenter: {
+    textAlign: 'center',
+  },
+  textWhite: {
+    color: themes.colors.white,
   },
 });
