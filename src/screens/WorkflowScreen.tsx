@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unstable-nested-components */
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import React, {useRef, useState} from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import ActionSheet from 'react-native-actionsheet';
 import {AppStackParamList} from '../navigation';
 import {Svg} from 'react-native-svg';
@@ -97,7 +96,7 @@ export const WorkflowScreen = ({route, navigation}: Props) => {
     }
   };
   return (
-    <View style={styles.flex, { paddingTop: 16}}>
+    <View style={[styles.flex, {paddingTop: 16}]}>
       <Svg width={SVGWidth} height={SVGHeight}>
         {/* render link from leaves node to end node */}
         {renderLinks(tempLinks, true)}
