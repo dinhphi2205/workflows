@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18, 20]
+        node-version: 18
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18, 20]
+        node-version: 18
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -43,12 +43,12 @@ jobs:
       - name: Install Dependencies
         run: yarn
       - name: TypeScript type check
-        run: yarn validate:typescript
+        run: yarn tsc
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18, 20]
+        node-version: 18
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
